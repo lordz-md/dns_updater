@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #Variable Declaration - Change These
-HOSTED_ZONE_ID="Z6MA3ZPBCGFCZ"
-NAME="lordzec2.awslabs.guru."
+HOSTED_ZONE_ID="ZONE_ID_HERE"
+NAME="YOUR_DNS_NAME_HERE"
 TYPE="A"
 TTL=30
 
@@ -51,4 +51,4 @@ cat > /tmp/route53_changes.json << EOF
 EOF
 
 #update records
-aws --profile dns-updater route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/route53_changes.json >> /dev/null
+aws --profile AWS_PROFILE_HERE route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file:///tmp/route53_changes.json >> /dev/null
